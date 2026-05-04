@@ -1,3 +1,5 @@
+import { router } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { Pressable, Text, useWindowDimensions, View } from "react-native";
 import Animated, {
@@ -10,8 +12,6 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 
 type Slide = {
   key: string;

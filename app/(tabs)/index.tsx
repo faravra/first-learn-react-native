@@ -1,9 +1,13 @@
-import { Link } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { Link, router } from "expo-router";
+import { Button, Pressable, Text, View } from "react-native";
+
+import { styled } from "nativewind";
+import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
+const SafeAreaView = styled(RNSafeAreaView);
 
 export default function Index() {
   return (
-    <View className="flex-1 items-center justify-center bg-background px-6">
+    <SafeAreaView className="flex-1 bg-background px-6">
       <View className="w-full max-w-md">
         <Text className="text-3xl font-extrabold tracking-tight text-success">
           Selamat datang, Rizky.
@@ -23,17 +27,24 @@ export default function Index() {
             untuk mengkustom layar ini—coba ganti judul, warna, atau tambahkan
             tombol pertamamu.
           </Text>
-          <Link href="/onboarding">
-            <Button title="Lanjutkan" color="#22c55e" />
+          <Link href="/onboarding" asChild>
+            <Pressable
+              className="mt-4 items-center justify-center rounded-xl bg-[#22c55e] py-3 active:opacity-80"
+              accessibilityRole="button"
+              accessibilityLabel="Lanjutkan"
+            >
+              <Text className="text-base font-semibold text-white">Lanjutkan</Text>
+            </Pressable>
           </Link>
         </View>
 
         <View className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-          <Link href="/subscriptions/spotify">
-            <Text className="text-sm font-semibold text-success">
-              Lihat Subscriptions Spotify
-            </Text>
-          </Link>
+          <Button
+            title="Lihat Subscriptions Spotify"
+            color="#22c55e"
+            onPress={() => router.push("/subscriptions/spotify")}
+            accessibilityLabel="Lihat Subscriptions Spotify"
+          />
         </View>
 
         <Link href={{ pathname: "/subscriptions/[id]", params: { id: "claude" } }}>
@@ -42,6 +53,6 @@ export default function Index() {
           </Text>
         </Link>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

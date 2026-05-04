@@ -40,18 +40,18 @@
 
 @layer components {
   .tabs-icon {
-    @apply size-12 items-center justify-center;
+    @apply !size-12 !items-center !justify-center;
   }
 
   .tabs-pill {
-    @apply size-12 items-center justify-center rounded-full bg-transparent;
+    @apply !size-12 !items-center !justify-center !rounded-full !bg-transparent;
   }
 
   .tabs-active {
-    @apply bg-[color:var(--color-accent)];
+    @apply !bg-[color:var(--color-accent)] ;
   }
 
   .tabs-glyph {
-    @apply size-6;
+    @apply !size-6;
   }
 }
